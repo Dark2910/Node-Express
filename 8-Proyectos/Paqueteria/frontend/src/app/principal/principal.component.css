@@ -1,0 +1,40 @@
+/*body*/
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/*menu*/
+#menu a {
+    font-size:18;
+    font-weight:bold;
+    color: white;
+}
+#menu button {
+    font-size:18;
+    font-weight:bold; 
+}
+
+/*imagenes*/
+.carousel-inner {
+    max-height: 33rem;
+}
+
+/*columnas*/
+@media (max-width:768px) {
+    #intro {
+        width:90% !important; 
+    }
+    .servicio-fila {
+        width:100% !important;
+        text-align: center;
+    }
+}
+
+/*cadaptar a pantalla pequeña*/
+@media(max-width: 576px) {
+    .icono-wrap{
+        flex-wrap: wrap;
+        justify-content: center !important;
+    }
+}

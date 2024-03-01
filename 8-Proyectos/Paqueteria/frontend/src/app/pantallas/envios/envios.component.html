@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg bg-dark" id="menu">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                  <img src="assets/Imagenes/paquemex.jpg" alt="logo" height="80px" width="100px">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Integra tu tienda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="Paquemexinfo()">¿Por que paquemex?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="Guia()">Guia de Tansporte</a>
+                        </li>
+                    </ul>
+                </div>
+             </div>
+        </nav>
+        <!-- Paquetes -->
+        <div class="card">
+            <ul class="navbar-nav">
+                <div class="card-body">
+                    <h1> Lista de Envios </h1>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="Buscar()">Buscar</a>
+                    </li>
+                    <li *ngIf="bandera1" class="nav-item">
+                        <textarea name="" id="" cols="30" rows="1"></textarea>
+                    </li>
+                    <li *ngIf="bandera1" class="nav-item">
+                        <button>ok</button>
+                    </li>
+                </div>
+            </ul>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Transportista</th>
+                        <th>Tipo de transporte</th>
+                        <th>Numero de paquetes</th>
+                        <th>Origen</th>
+                        <th>Destino</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>miguel</td>
+                        <td>bicicleta</td>
+                        <td>10 paquetes</td>
+                        <td>liverpool</td>
+                        <td>valle de anahuac</td>
+                        <td>
+                            <a class="btn btn-info"> Editar </a> |
+                            <a class="btn btn-success" (click)="Rutas()"> Ruta </a> |
+                            <a class="btn btn-danger" role="button">Borrar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
