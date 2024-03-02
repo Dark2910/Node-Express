@@ -4,6 +4,7 @@ const {math} = require('../data/courses.js').infoCourses;
 const routerMath = express.Router();
 
 routerMath.get('/', (req, res) => {
+    //query
     if(req.query.orderBy === 'views'){
         return res.send(JSON.stringify(math.sort((a, b) => b.views - a.views)))
     }
@@ -16,7 +17,7 @@ routerMath.get('/:about',(req, res) => {
     const coursesFiltered = math.filter((courses) => courses.about === about);
 
     if(coursesFiltered.length === 0) {
-        return res.status(404).send('Course not fount. 😥');
+        return res.status(204).end();
     }
 
     return res.send(JSON.stringify(coursesFiltered));
@@ -30,9 +31,9 @@ routerMath.use(express.json());
 
 
 routerMath.post('/', (req, res) => {
-    let requestPost = req.body;
+    const requestPost = req.body;
 
-    math.push(requestBody);
+    math.push(requestPost);
     res.json(math);
     //res.send(JSON.stringify(math));
 });
@@ -41,14 +42,12 @@ routerMath.post('/', (req, res) => {
 routerMath.put('/:id', (req, res) => {
     const courseUpdated = req.body;
     const id = req.params.id;
-
     const index = math.findIndex((course) => course.id == id);
 
     if(index >= 0) {
         math[index] = courseUpdated;
     }
 
-    console.log(math);
     res.json(math);
     //res.send(JSON.stringify(math));
 });
@@ -56,7 +55,6 @@ routerMath.put('/:id', (req, res) => {
 routerMath.patch('/:id', (req, res) => {
     const courseUpdated = req.body;
     const id = req.params.id;
-
     const index = math.findIndex((course) => course.id == id);
 
     if(index >= 0) {
@@ -64,7 +62,6 @@ routerMath.patch('/:id', (req, res) => {
         Object.assign(course, courseUpdated);
     }
 
-    console.log(math);
     res.json(math);
     //res.send(JSON.stringify(math));
 });
@@ -77,12 +74,9 @@ routerMath.delete('/:id', (req, res) => {
         math.splice(index, 1);
     }
 
-    console.log(math);
     res.json(math);
     //res.send(JSON.stringify(math));
 });
-
-
 
 
 
